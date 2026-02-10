@@ -12,8 +12,16 @@ export default function Projects() {
           transition={{ type: "spring", stiffness: 200 }}
         >
           <strong>RED Zone Prediction – SafeJourney AI</strong><br />
-          Built a machine learning model (AUC 0.84) to identify high-risk zones
-          using Logistic Regression and clustering.
+          Problem:
+          Identifying high-risk zones using historical accident data. <br />
+
+          What I did:
+          Built a Logistic Regression model (AUC 0.84), handled missing data,
+          applied SMOTE, and used K-Means clustering for risk segmentation. <br />
+
+          Impact:
+          Identified a high-risk cluster (~13%) enabling targeted safety actions.
+
         </motion.li>
 
         <motion.li
