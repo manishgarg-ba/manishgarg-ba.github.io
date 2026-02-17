@@ -1,23 +1,35 @@
-import Rookie from "./components/rookie";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Blog from "./components/Blog";
-import Contact from "./components/Contact";
-import LinkedInPosts from "./components/LinkedInPosts";
-import AeonEmbed from "./components/AeonEmbed";
-import DataBackground from "./components/DataBackground";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import Navbar from "./components/Navbar";
+import "./App.css";
+
+import Home from "./pages/Home";
+import AboutPage from "./pages/AboutPage";
+import WorkPage from "./pages/WorkPage";
+import WritingPage from "./pages/WritingPage";
+import ContactPage from "./pages/ContactPage";
 
 export default function App() {
+  const location = useLocation();
+
   return (
     <>
-      <DataBackground />
-      <Rookie />
-      <About />
-      <Projects />
-      <AeonEmbed />
-      <LinkedInPosts />
-      <Blog />
-      <Contact />
+      <Navbar />
+
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/writing" element={<WritingPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </motion.div>
     </>
   );
 }
